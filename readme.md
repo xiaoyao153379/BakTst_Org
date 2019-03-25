@@ -1,4 +1,4 @@
-#BakTst_Org
+# BakTst_Org
 中文reademe：传送门
 >Introduction: BakTst_Org is a prototype of the backtesting system used by my own bitcoin quantitative trading.
 ----
@@ -13,7 +13,7 @@ This readme is mainly divided into the following parts:
 * Some ideas for the future
 * Thanks list
 ---
-###What kind of person is suitable for studying BakTst_Org?
+### What kind of person is suitable for studying BakTst_Org?
 BakTst_Org is just a prototype, the amount of code is not large, about four hundred lines, very simple. But what is needed is still there, such as: multi-process, simulation of the actual output parameters of the real open position, data acquisition crawler, simulation of the real opening process.
 
 So the right people include:
@@ -21,9 +21,9 @@ So the right people include:
 * Script developer
 * Financial enthusiasts
 * Quantify traders
-###Library to be imported
+### Library to be imported
 Talib, multiprocessing, pandas, json, numpy, time, requests
-###BakTst framework and introduction to each module of the framework
+### BakTst framework and introduction to each module of the framework
 BakTst_Org mainly divides 6 modules, which are:
 * craw (crawler module)
 * Feed (data acquisition module)
@@ -31,7 +31,7 @@ BakTst_Org mainly divides 6 modules, which are:
 * Portfollio (position management module)
 * Execution (order execution module)
 * main function
-####craw
+#### craw
 This module is a separate module, the API called is the bittrex api, which is mainly used to obtain transaction record data and then write to the txt file.
 
 Api: https://api.bittrex.com/api/v1.1/public/getmarkethistory?market=usdt-btc
@@ -43,22 +43,22 @@ The deposited data is divided into two files, one is the complete transaction da
 
 For the format of the data, please refer to the two txt files in the crash directory.
 
-####Feed
+#### Feed
 
 This module is used as a data transfer module for BakTst, receives the initialized data, and then passes it to the entire backtesting system. Received data:
 * data: The highest price, lowest price, opening price, closing price, time, etc. of the transaction for three minutes. The format is dataframe.
 * coin_number: The number of coins owned by the position initialization.
 * principal: principal
-####Strategy
+#### Strategy
 This module is used as the policy execution module of BakTst_Org, receives the transaction data transmitted from the feed module, and then performs quantitative analysis through this module, and then sets buy_index (buy index) and sell_index (sell index) to feedback the transaction. The trend is to finally transfer the data to the Portfollio module. The Strategy.py file writes logical decisions, the Strategy_fun.py file writes two strategy class functions, and a format conversion function.
 
-####Portfollio
+#### Portfollio
 This module is used as a position management module for BakTst_Org. Although we have just judged the buying and selling trend, if we set a standard and no longer open positions after more than 0.5 positions, then this module will play a limiting role. At the same time, the opening and selling signals will be sent to the next one. Execution module. Explain the meaning of the next few parameters:
 * buy_amount and sell_amount: The fixed billing amount may not be fixed in the real situation, but it is only a prototype, and the position of these two parameters is temporarily left there.
 * trade_sigle: trading signal, ‘sell’ is for sale, ‘buy’ is for purchase, ‘None’ is for inaction, in subsequent code, this is a judgment basis.
 * judge_position: position, the value is less than 1.
 
-####Execution
+#### Execution
 This module is used as an order execution module for BakTst_Org to simulate the user's actual billing situation and will eventually return a total profit and loss situation. Explain the meaning of the next few parameters:
 * tip: handling fee.
 * buy_flap: The slippage of the purchase.
@@ -71,7 +71,7 @@ Convert the data of the txt document into the data of the dataframe format and p
 * lose: loss.
 * balance: no loss, no profit.
 
-###How to use BakTst_Org
+### How to use BakTst_Org
 * First you need to collect data using the craw.py file in the craw module alone.
 * Run the BakTst_Org.py file to see the output.
 ###Extension
@@ -83,6 +83,6 @@ Mainly some problems encountered in the development process, give two examples:
 * Multi-process, I use the process pool solution. But when calling the methods in the class, I found out that I can't call them. Finally, I can call these methods that need to run multiple processes on the outside.
 ### Some ideas for the future
 I will publish this prototype, but for everyone to learn from, if it is used to really do quantitative transactions, it is not enough. So next, I will develop a quantitative trading system that connects with the real disk based on BakTst_Org.
-###Thanks list
+### Thanks list
 * Thanks to everyone in 慢雾区远不止狗币技术群, helped me solve the programming problems.
 * Thanks to greatshi, a big deal in the field of quantitative trading. I didn't have any experience in developing over-trading systems before, and greatshi patiently answered and guided me how to develop BakTst_Org, thank you.
