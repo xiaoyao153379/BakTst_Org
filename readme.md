@@ -88,4 +88,4 @@ Mainly some problems encountered in the development process, give two examples:
 I will publish this prototype, but for everyone to learn from, if it is used to really do quantitative transactions, it is not enough. So next, I will develop a quantitative trading system that connects with the real disk based on BakTst_Org.
 ### Thanks list
 * Thanks to everyone in 慢雾区远不止狗币技术群, helped me solve the programming problems.
-* Thanks to greatshi, a big deal in the field of quantitative trading. I didn't have any experience in developing over-trading systems before, and greatshi patiently answered and guided me how to develop BakTst_Org, thank you.
+* Thanks to greatshi. Greatshi,a master in the field of quantitative trading. I didn't have any experience in developing over-trading systems before, and greatshi patiently answered and guided me how to develop BakTst_Org, thank you.
