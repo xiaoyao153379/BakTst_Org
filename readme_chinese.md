@@ -80,6 +80,10 @@ api：https://api.bittrex.com/api/v1.1/public/getmarkethistory?market=usdt-btc
 主要是一些开发过程中遇到的问题，举两个例子：
 * 遇到过一次命名覆盖的问题。**open**，我写`with open (addr , 'w') as w:` 和设置开盘价 open 的时候，遇到了这个问题。
 * 多进程，我采用的进程池的方案。但是调用类里的方法时，却发现怎么也不能调用，最后将这些需要跑多进程的方法，放在外部，就可以调用了。
+###结果图
+### Results map
+![result1](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/1.png?raw=true "result")
+![result2](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/2.png?raw=true "result")
 ### 未来的一些想法
 我将这个雏形发表出来，只是供大家学习参考，如果拿来真正做量化交易，还不够。所以接下来，我将再BakTst_Org的基础上，开发出一个与真实盘相接的量化交易系统。
 ### 感谢名单

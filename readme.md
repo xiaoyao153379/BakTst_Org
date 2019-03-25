@@ -1,5 +1,5 @@
 # BakTst_Org
-中文reademe：传送门
+中文reademe：[传送门](https://github.com/xiaoyao153379/BakTst_Org/blob/master/readme_chinese.md)
 >Introduction: BakTst_Org is a prototype of the backtesting system used by my own bitcoin quantitative trading.
 ----
 This readme is mainly divided into the following parts:
@@ -74,13 +74,16 @@ Convert the data of the txt document into the data of the dataframe format and p
 ### How to use BakTst_Org
 * First you need to collect data using the craw.py file in the craw module alone.
 * Run the BakTst_Org.py file to see the output.
-###Extension
+### Extension
 * Dynamic change value: In addition to some values ​​that need to be fixed, such as the principal, position, handling fee, there are some values ​​that can be dynamically changed, such as slippage, single billing amount.
 * Function of the strategy class: Although I just wrote two, you can add more, just add these methods to the Strategy_fun.py file.
-###Question
+### Question
 Mainly some problems encountered in the development process, give two examples:
 * I have encountered a problem with naming coverage. **open**, I encountered this problem when I wrote `with open (addr , 'w') as w:` and set the opening price name 'open'.
 * Multi-process, I use the process pool solution. But when calling the methods in the class, I found out that I can't call them. Finally, I can call these methods that need to run multiple processes on the outside.
+### Results map
+![result1](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/1.png?raw=true "result")
+![result2](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/2.png?raw=true "result")
 ### Some ideas for the future
 I will publish this prototype, but for everyone to learn from, if it is used to really do quantitative transactions, it is not enough. So next, I will develop a quantitative trading system that connects with the real disk based on BakTst_Org.
 ### Thanks list
