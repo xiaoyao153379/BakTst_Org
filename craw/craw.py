@@ -50,12 +50,13 @@ while True:
             w.write(json.dumps(history_data)+'\n')
         with open('data.txt','a') as ws:
             ws.write(json.dumps({'data':time.time(),'open_price':open_price,'close':close,'low':low,'high':high,'volume':volume,'code':'btc'})+'\n')
-        open_price = result[0]['Price']
-        close = result[0]['Price']
-        low = result[0]['Price']
-        high = result[0]['Price']
+        open_price = result[-1]['Price']
+        close = result[-1]['Price']
+        low = result[-1]['Price']
+        high = result[-1]['Price']
         number = 0
-        volume += result[0]['Quantity']
+        volume = 0.00
+        volume += result[-1]['Quantity']
         history_data = []
         history_id = []
     print(data)
