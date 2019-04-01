@@ -2,6 +2,7 @@
 中文reademe：[传送门](https://github.com/xiaoyao153379/BakTst_Org/blob/master/readme_chinese.md)
 >Introduction: BakTst_Org is a prototype of the backtesting system used by my own bitcoin quantitative trading.
 ----
+![mind Mapping](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/mind_Mapping.png?raw=true "result")
 This readme is mainly divided into the following parts:
 * What kind of person is suitable for studying BakTst_Org?
 * Library to be imported
