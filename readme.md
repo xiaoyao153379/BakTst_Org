@@ -73,7 +73,7 @@ There are the meaning of some parameters:
 * buy_last_price and sell_last_price: the last price of trading.
 
 #### Main function
-This module is used to convert the data of the txt document into the data of the dataframe format and send it to the whole system. Finally, the system will return a final number of the coin and the number of the principal. Then, it will compares the initial prices and final prices to calculate profit and loss. 
+This module is used to convert the data of the txt document into the data of the dataframe format and send it to the whole system. Finally, the system will return a final number of the coin and the number of the principal. Then, it will compares the initial price and final price to calculate profit and loss. 
 There are the meaning of some parameters:
 * earn: earn.
 * lose: loss.
@@ -83,7 +83,7 @@ There are the meaning of some parameters:
 * Firstly, you need to collect data by using the craw.py file in the craw module.
 * Secondly, you need to run the BakTst_Org.py file to see the output.
 ### Extension
-* Dynamic change value: Some values is fixed, such as the principal, position and handling fee. But there are some values ​​that can be dynamically changed, such as slippage, single billing amount.
+* Dynamic variable: Some values is fixed, such as the principal, position and handling fee. But there are some values ​​that can be dynamically changed, such as slippage, single billing amount.
 * Function of the 'Strategy_fun.py' in Strategy module: I just wrote two functions, but you can add more.
 ### Question
 There are two questions that I met:
@@ -93,7 +93,7 @@ There are two questions that I met:
 ![result1](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/1.png?raw=true "result")
 ![result2](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/2.png?raw=true "result")
 ### Some ideas for the future
-I will publish this prototype, and everyone can reference from it. But if it is used to trade in the real quantitative transaction, it can't.I will develop a quantitative trading system that can be used to trade in the real quantitative transaction based on BakTst_Org.
+I will publish this prototype, and everyone can reference from it. But if it is used to trade in the real quantitative transaction, it can't. I will develop a quantitative trading system that can be used to trade in the real quantitative transaction based on BakTst_Org.
 ### Thanks list
 * Thanks to everyone in 慢雾区远不止狗币技术群, helped me solve some programming problems.
 * Thanks to greatshi. Greatshi,a master in the field of quantitative trading. He patiently answered some questions that I met. Thank you.
