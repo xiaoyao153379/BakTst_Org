@@ -88,7 +88,7 @@ api：https://api.bittrex.com/api/v1.1/public/getmarkethistory?market=usdt-btc
 我将这个雏形发表出来，只是供大家学习参考，如果拿来真正做量化交易，还不够。所以接下来，我将再BakTst_Org的基础上，开发出一个与真实盘相接的量化交易系统。
 ### 感谢名单
 * 感谢**慢雾区远不止狗币技术群**的各位，帮助我解决了编程方面的问题。
-* 感谢greatshi，一个量化交易领域的大佬。我之前并没有开发过量化交易系统方面的经验，greatshi很耐心的回答并且指导我如何开发出BakTst_Org，多谢。
+* 感谢greatshi，一个量化交易领域的大佬。greatshi很耐心的回答了我遇到的很多问题，多谢。
 
 
 

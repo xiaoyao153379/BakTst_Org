@@ -14,78 +14,86 @@ This readme is mainly divided into the following parts:
 * Thanks list
 ---
 ### What kind of person is suitable for studying BakTst_Org?
-BakTst_Org is just a prototype, the amount of code is not large, about four hundred lines, very simple. But what is needed is still there, such as: multi-process, simulation of the actual output parameters of the real open position, data acquisition crawler, simulation of the real opening process.
+BakTst_Org is just a prototype, so the rows of code is not large. It's about four hundred lines. But it also has all the features you need, such as: multi-process, simulation, a crawler that obtain trading data.
 
-So the right people include:
-* Primary learning python programming people
+So it is suitable for these people:
+* Python enthusiast
 * Script developer
 * Financial enthusiasts
 * Quantify traders
 ### Library to be imported
 Talib, multiprocessing, pandas, json, numpy, time, requests
 ### BakTst framework and introduction to each module of the framework
-BakTst_Org mainly divides 6 modules, which are:
-* craw (crawler module)
-* Feed (data acquisition module)
-* Strategy (Strategy Module)
-* Portfollio (position management module)
-* Execution (order execution module)
+BakTst_Org mainly divides six modules:
+* craw (module of crawler)
+* Feed (module of data acquisition)
+* Strategy (module of strategy)
+* Portfollio (module of position management)
+* Execution (module of order execution)
 * main function
 #### craw
-This module is a separate module, the API called is the bittrex api, which is mainly used to obtain transaction record data and then write to the txt file.
+This module is a separate module, and the API called is the bittrex api, which is mainly used to obtain transaction data and then write to the txt file.
 
 Api: https://api.bittrex.com/api/v1.1/public/getmarkethistory?market=usdt-btc
-If you want to modify the transaction data of the acquired currency, you only need to modify the last *usdt-btc* transaction pair. For example: usdt to ltc, you can modify it to *usdt-ltc*.
+If you want to obtain a transaction data of a currency, you only need to modify the last *usdt-btc* transaction pair. For example: 'usdt to ltc', you can modify it to *usdt-ltc*.
 
 The time limit for getting is 60 requests per minute, so a `time.sleep(1)` is added.
 
-The deposited data is divided into two files, one is the complete transaction data, and the other is the highest price, the lowest price, the opening price, the closing price, the transaction volume, the time, and the currency data every 3 minutes.
+The data that I obtained is divided into two files, one is the complete transaction data that includes details of each transaction, and the other is consisted of a time period information that includes the highest price, the lowest price, the opening price, the closing price, the transaction volume and the time.
 
-For the format of the data, please refer to the two txt files in the crash directory.
+For the format of the data, please checking the value of the two txt files in the ‘craw/’ path.
 
 #### Feed
 
-This module is used as a data transfer module for BakTst, receives the initialized data, and then passes it to the entire backtesting system. Received data:
-* data: The highest price, lowest price, opening price, closing price, time, etc. of the transaction for three minutes. The format is dataframe.
-* coin_number: The number of coins owned by the position initialization.
-* principal: principal
+This module is used to transfer the transaction data and the initialized data into BakTst. 
+
+The initialized data includes these parameters:
+* data: The highest price, lowest price, opening price, closing price, time, and the transaction volume in a period of time. And the format is dataframe.
+* coin_number: The number of coins already owned by us. 
+* principal:  The principal already owned by us.
 #### Strategy
-This module is used as the policy execution module of BakTst_Org, receives the transaction data transmitted from the feed module, and then performs quantitative analysis through this module, and then sets buy_index (buy index) and sell_index (sell index) to feedback the transaction. The trend is to finally transfer the data to the Portfollio module. The Strategy.py file writes logical decisions, the Strategy_fun.py file writes two strategy class functions, and a format conversion function.
+This module is used to analyze the transaction data to predict the trend of price. Firstly it receives the transaction data from the Feed module. Secondly, it will analyze the transaction data through some function in Strategy module. Thirdly, it will sets buy_index (buy index) and sell_index (sell index). Lastly, it will transport the buy_index and the sell_index to Portfollio module.
+
+The total structure of the Strategy module includes two parts. The one is 'Strategy.py' that is writed Strategic judgment, and the other one is 'Strategy_fun.py' file that writed two strategic functions, and a format conversion function.
 
 #### Portfollio
-This module is used as a position management module for BakTst_Org. Although we have just judged the buying and selling trend, if we set a standard and no longer open positions after more than 0.5 positions, then this module will play a limiting role. At the same time, the opening and selling signals will be sent to the next one. Execution module. Explain the meaning of the next few parameters:
-* buy_amount and sell_amount: The fixed billing amount may not be fixed in the real situation, but it is only a prototype, and the position of these two parameters is temporarily left there.
-* trade_sigle: trading signal, ‘sell’ is for sale, ‘buy’ is for purchase, ‘None’ is for inaction, in subsequent code, this is a judgment basis.
-* judge_position: position, the value is less than 1.
+This module is used to manage position. Although we have judged the buying and selling trend, we need to limit the position. For example, we can set a limiting that the proportion of the position must less than 0.5. So, this module plays a limiting role. Then, the opening and selling signals will be sent to the next one--Execution module. 
+
+There are the meaning of some parameters:
+* buy_amount and sell_amount: It is a fixed rate to trade. The fixed rate may not be same in the real situation, but we just use a software to trade.
+* trade_sigle: It is a trading signal. The ‘sell’ is for sale. The ‘buy’ is for purchase. The ‘None’ is for inaction. In the subsequent code, that is a judgment basis.
+* judge_position: It is standard to judge position, and the value is less than 1.
 
 #### Execution
-This module is used as an order execution module for BakTst_Org to simulate the user's actual billing situation and will eventually return a total profit and loss situation. Explain the meaning of the next few parameters:
-* tip: handling fee.
-* buy_flap: The slippage of the purchase.
-* sell_flap: The slippage of the sale.
-* buy_last_price and sell_last_price: the last traded price of the trade.
+This module is used to execute an order to simulate the real situation about trading. And it will eventually return a total profit and loss. 
+There are the meaning of some parameters:
+* tip: Handling fee.
+* buy_flap: The slippage of buying.
+* sell_flap: The slippage of selling.
+* buy_last_price and sell_last_price: the last price of trading.
 
 #### Main function
-Convert the data of the txt document into the data of the dataframe format and pass it to the whole system. Finally, the system will return a final number of coins and the number of principals. The main function compares the initial and final prices to calculate the final profit and loss. The meaning of the last printed parameter:
+This module is used to convert the data of the txt document into the data of the dataframe format and send it to the whole system. Finally, the system will return a final number of the coin and the number of the principal. Then, it will compares the initial prices and final prices to calculate profit and loss. 
+There are the meaning of some parameters:
 * earn: earn.
 * lose: loss.
 * balance: no loss, no profit.
 
 ### How to use BakTst_Org
-* First you need to collect data using the craw.py file in the craw module alone.
-* Run the BakTst_Org.py file to see the output.
+* Firstly, you need to collect data by using the craw.py file in the craw module.
+* Secondly, you need to run the BakTst_Org.py file to see the output.
 ### Extension
-* Dynamic change value: In addition to some values ​​that need to be fixed, such as the principal, position, handling fee, there are some values ​​that can be dynamically changed, such as slippage, single billing amount.
-* Function of the strategy class: Although I just wrote two, you can add more, just add these methods to the Strategy_fun.py file.
+* Dynamic change value: Some values is fixed, such as the principal, position and handling fee. But there are some values ​​that can be dynamically changed, such as slippage, single billing amount.
+* Function of the 'Strategy_fun.py' in Strategy module: I just wrote two functions, but you can add more.
 ### Question
-Mainly some problems encountered in the development process, give two examples:
-* I have encountered a problem with naming coverage. **open**, I encountered this problem when I wrote `with open (addr , 'w') as w:` and set the opening price name 'open'.
-* Multi-process, I use the process pool solution. But when calling the methods in the class, I found out that I can't call them. Finally, I can call these methods that need to run multiple processes on the outside.
+There are two questions that I met:
+* I have encountered a problem about naming coverage. The **open** is a function in python, and I use `with open (addr , 'w') as w:` already, so there was a mistake when I use 'open' to representative the 'open price'.
+* It is a problem acout Multi-process. I used the Multi-process pool. But when I add the method in class to the Multi-process pool, I found out that I can't call them. Finally, I can call these methods, but I need to run multiple processes on the outside of class.
 ### Results map
 ![result1](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/1.png?raw=true "result")
 ![result2](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/2.png?raw=true "result")
 ### Some ideas for the future
-I will publish this prototype, but for everyone to learn from, if it is used to really do quantitative transactions, it is not enough. So next, I will develop a quantitative trading system that connects with the real disk based on BakTst_Org.
+I will publish this prototype, and everyone can reference from it. But if it is used to trade in the real quantitative transaction, it can't.I will develop a quantitative trading system that can be used to trade in the real quantitative transaction based on BakTst_Org.
 ### Thanks list
-* Thanks to everyone in 慢雾区远不止狗币技术群, helped me solve the programming problems.
-* Thanks to greatshi. Greatshi,a master in the field of quantitative trading. I didn't have any experience in developing over-trading systems before, and greatshi patiently answered and guided me how to develop BakTst_Org, thank you.
+* Thanks to everyone in 慢雾区远不止狗币技术群, helped me solve some programming problems.
+* Thanks to greatshi. Greatshi,a master in the field of quantitative trading. He patiently answered some questions that I met. Thank you.
