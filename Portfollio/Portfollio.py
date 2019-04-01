@@ -8,7 +8,7 @@ class Portfollio:
         self.sell_amount = 10000
         self.data = data
         self.trade_sigle = 'None'
-        self.position = ( coin_number * self.data.iat[-1,2] ) / self.principal
+        self.position = ( coin_number * self.data.iat[-1,2] ) / ( self.principal + ( coin_number * self.data.iat[-1,2] ) )
         self.judge_position = 0.5
 
     def position_control(self):
@@ -29,6 +29,8 @@ class Portfollio:
 
     def sell(self):
         sigle = 'sell'
+        if(self.sell_amount > self.coin_number):
+            self.sell_amount = self.coin_number
         self.Execution = Execution(sigle,self.buy_amount,self.sell_amount,self.data,self.principal,self.coin_number)
         result = self.Execution.excu()
         self.coin_number = result['coin_number']
