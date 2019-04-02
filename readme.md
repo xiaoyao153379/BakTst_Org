@@ -88,13 +88,13 @@ There are the meaning of some parameters:
 * Function of the 'Strategy_fun.py' in Strategy module: I just wrote two functions, but you can add more.
 ### Question
 There are two questions that I met:
-* I have encountered a problem about naming coverage. The **open** is a function in python, and I use `with open (addr , 'w') as w:` already, so there was a mistake when I use 'open' to representative the 'open price'.
+* I have met a problem about naming coverage. The **open** is a function in python, and I use `with open (addr , 'w') as w:` already, so there was a mistake when I use 'open' to representative the 'open price'.
 * It is a problem acout Multi-process. I used the Multi-process pool. But when I add the method in class to the Multi-process pool, I found out that I can't call them. Finally, I can call these methods, but I need to run multiple processes on the outside of class.
 ### Results map
 ![result1](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/1.png?raw=true "result")
 ![result2](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/2.png?raw=true "result")
 ### Some ideas for the future
-I will publish this prototype, and everyone can reference from it. But if it is used to trade in the real quantitative transaction, it can't. I will develop a quantitative trading system that can be used to trade in the real quantitative transaction based on BakTst_Org.
+I published BakTst_Org, and everyone can reference from it. But if it is used to trade in the real quantitative transaction, it can't. I will develop a quantitative trading system that can be used to trade in the real quantitative transaction based on BakTst_Org.
 ### Thanks list
 * Thanks to everyone in 慢雾区远不止狗币技术群, helped me solve some programming problems.
 * Thanks to greatshi. Greatshi,a master in the field of quantitative trading. He patiently answered some questions that I met. Thank you.
