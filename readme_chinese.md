@@ -1,6 +1,7 @@
 # BakTst_Org
 >介绍：BakTst_Org 是一个比特币量化交易的回测系统。
 ----
+![mind Mapping](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/mind_Mapping.png?raw=true "result")
 本篇readme主要分成以下几个部分：
 * BakTst_Org 适合哪些人看
 * 需要导入的库
