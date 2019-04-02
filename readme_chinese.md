@@ -1,5 +1,5 @@
 # BakTst_Org
->介绍：BakTst_Org 是我自己写的一个比特币量化交易会用到的回测系统的框架雏形。
+>介绍：BakTst_Org 是一个比特币量化交易的回测系统。
 ----
 本篇readme主要分成以下几个部分：
 * BakTst_Org 适合哪些人看
