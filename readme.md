@@ -1,13 +1,13 @@
 # BakTst_Org
 中文reademe：[传送门](https://github.com/xiaoyao153379/BakTst_Org/blob/master/readme_chinese.md)
->Introduction: BakTst_Org is a prototype of the backtesting system used by my own bitcoin quantitative trading.
+>Introduction: BakTst_Org is a prototype of the backtesting system used for BTC quantitative trading.
 ----
 ![mind Mapping](https://github.com/xiaoyao153379/BakTst_Org/blob/master/picture/mind_Mapping.png?raw=true "result")
 This readme is mainly divided into the following parts:
 * What kind of person is suitable for studying BakTst_Org?
-* Library to be imported
+* import library
 * BakTst_Org's framework and various modules of the framework
-* How to use BakTst_Org
+* How to use BakTst_Org?
 * Extension
 * Question
 * Results map
@@ -26,11 +26,11 @@ So it is suitable for these people:
 Talib, multiprocessing, pandas, json, numpy, time, requests
 ### BakTst framework and introduction to each module of the framework
 BakTst_Org mainly divides six modules:
-* craw (module of crawler)
-* Feed (module of data acquisition)
-* Strategy (module of strategy)
-* Portfollio (module of position management)
-* Execution (module of order execution)
+* craw (crawler module)
+* Feed (data acquisition module)
+* Strategy (strategy module)
+* Portfollio (position management module)
+* Execution (order execution module)
 * main function
 #### craw
 This module is a separate module, and the API called is the bittrex api, which is mainly used to obtain transaction data and then write to the txt file.
@@ -84,7 +84,7 @@ There are the meaning of some parameters:
 * Firstly, you need to collect data by using the craw.py file in the craw module.
 * Secondly, you need to run the BakTst_Org.py file to see the output.
 ### Extension
-* Dynamic variable: Some values is fixed, such as the principal, position and handling fee. But there are some values ​​that can be dynamically changed, such as slippage, single billing amount.
+* Dynamic variable: Some values is fixed, such as  principal, position and handling fee. But there are some values ​​that can be dynamically changed, such as slippage, single billing amount.
 * Function of the 'Strategy_fun.py' in Strategy module: I just wrote two functions, but you can add more.
 ### Question
 There are two questions that I met:
